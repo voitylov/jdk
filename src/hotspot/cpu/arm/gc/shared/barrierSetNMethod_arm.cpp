@@ -103,7 +103,7 @@ void BarrierSetNMethod::deoptimize(nmethod* nm, address* return_address_ptr) {
   frame = frame.sender(&reg_map);
 
   // Don't insert logging here as it causes a cryptic error with C2,
-  // likely because of some registers got clobbered
+  // likely because some registers got clobbered
 
   new_frame->sp = frame.sp();
   new_frame->fp = frame.fp();
