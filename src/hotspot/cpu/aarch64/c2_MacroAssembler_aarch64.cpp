@@ -107,7 +107,7 @@ address C2_MacroAssembler::arrays_hashcode(Register ary, Register cnt, Register 
   assert(is_power_of_2(unroll_factor), "can't use this value to calculate the jump target PC");
   andr(tmp2, cnt, unroll_factor - 1);
   adr(tmp1, BR_BASE);
-  // For Cortex-A53 offset equals 4 because 2 nops are generated.
+  // For Cortex-A53 offset is 4 because 2 nops are generated.
   sub(tmp1, tmp1, tmp2, ext::sxtw, VM_Version::supports_a53mac() ? 4 : 3);
   movw(tmp2, 0x1f);
   br(tmp1);

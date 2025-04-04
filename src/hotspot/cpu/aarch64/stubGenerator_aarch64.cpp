@@ -6712,7 +6712,7 @@ class StubGenerator: public StubCodeGenerator {
     __ andr(rscratch2, cnt, vf - 1);
     __ bind(TAIL_SHORTCUT);
     __ adr(rscratch1, BR_BASE);
-    // For Cortex-A53 offset equals 4 because 2 nops are generated.
+    // For Cortex-A53 offset is 4 because 2 nops are generated.
     __ sub(rscratch1, rscratch1, rscratch2, ext::uxtw, VM_Version::supports_a53mac() ? 4 : 3);
     __ movw(rscratch2, 0x1f);
     __ br(rscratch1);
